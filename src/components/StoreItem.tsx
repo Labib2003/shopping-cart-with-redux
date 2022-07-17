@@ -9,7 +9,7 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
     return (
         <div className="card bg-base-100 shadow-2xl">
             <figure className="h-1/2">
-                <img src={image} alt={title} className="rounded-xl p-10 h-4/5 object-contain" />
+                <img src={image} alt={title} className="rounded-xl p-10 h-96 object-contain" />
             </figure>
             <div className="card-body">
                 <div>
@@ -33,7 +33,7 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
                                 <button className="btn btn-error w-full rounded" onClick={() => deleteItem(id)}>Remove From Cart</button>
                             </div>
                             :
-                            <button className="btn btn-primary mx-auto rounded" onClick={() => increaseQuantity(id)}>Add To Cart</button>
+                            <button className="btn btn-primary rounded mx-auto" onClick={() => increaseQuantity(id)}>Add To Cart</button>
                     }
                 </div>
             </div>
