@@ -3,7 +3,7 @@ import { StoreItemProps } from "../types";
 
 const StoreItem = ({ id, title, price, description, category, image }: StoreItemProps) => {
     const { getItemQuantity, increaseQuantity, decreaseQuantity, deleteItem } = useShoppingCart();
-
+    const { cartItems } = useShoppingCart();
     const quantity = getItemQuantity(id);
 
     return (
@@ -26,7 +26,10 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
                                     </button>
                                     <p className="text-center text-xl font-medium">{quantity}</p>
-                                    <button className="btn btn-primary rounded" onClick={() => increaseQuantity(id)}>
+                                    <button className="btn btn-primary rounded" onClick={() => {
+                                        increaseQuantity(id);
+                                        console.log(typeof(cartItems))
+                                    }}>
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                                     </button>
                                 </div>

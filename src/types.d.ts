@@ -19,8 +19,6 @@ export type ShoppingCartProviderProps = {
 }
 
 export type ShoppingCartContextType = {
-    /* openCart: () => void
-    closeCart: () => void */
     getItemQuantity: (id: number) => number
     increaseQuantity: (id: number) => void
     decreaseQuantity: (id: number) => void

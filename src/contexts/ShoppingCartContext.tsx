@@ -14,7 +14,7 @@ export const useShoppingCart = () => {
 
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
     const dispatch = useDispatch();
-    const cartItems: CartItem[] = useSelector((state: State) => state.cartItems);
+    const cartItems: CartItem[] = useSelector((state: State) => state.cartItems) || [];
     const { increaseQuantity, decreaseQuantity, deleteItem } = bindActionCreators(actionCreators, dispatch);
 
     const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
