@@ -14,8 +14,22 @@ export type CartItem = {
     quantity: number
 }
 
-
-
 export type ShoppingCartProviderProps = {
     children: ReactNode
+}
+
+export type ShoppingCartContextType = {
+    openCart: () => void
+    closeCart: () => void
+    getItemQuantity: (id: number) => number
+    increaseCartQuantity: (id: number) => void
+    decreaseCartQuantity: (id: number) => void
+    removeFromCart: (id: number) => void
+    cartQuantity: number
+    cartItems: CartItem[]
+}
+
+export type CartItemAction = {
+    type: "increaseQuantity" | "decreaseQuantity" | "deleteItem",
+    payload: number
 }

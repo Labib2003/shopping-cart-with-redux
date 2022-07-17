@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
-import { ShoppingCartProviderProps } from "../types";
+import { ShoppingCartContextType, ShoppingCartProviderProps } from "../types";
 
-const ShoppingCartContext = createContext({});
+const ShoppingCartContext = createContext({} as ShoppingCartContextType);
 
 export const useShoppingCart = () => {
     return useContext(ShoppingCartContext);
