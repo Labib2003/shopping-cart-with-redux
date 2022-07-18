@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100">
             <div className="w-3/4 mx-auto">
                 <div className="flex-1">
-                    <p className='text-lg font-medium'>Awesome Store</p>
+                    <p className='text-lg font-medium'>daisyUI</p>
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">

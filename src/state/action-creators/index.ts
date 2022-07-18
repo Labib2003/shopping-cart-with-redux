@@ -1,5 +1,5 @@
 import { Dispatch } from "react"
-import { CartItemAction, FilterAction } from "../../types"
+import { CartItemAction } from "../../types"
 
 export const increaseQuantity = (id: number) => {
     return (dispatch: Dispatch<CartItemAction>) => {
@@ -27,11 +27,3 @@ export const deleteItem = (id: number) => {
         }));
     };
 };
-
-export const changeCategory = (type: string) => {
-    return (dispatch: Dispatch<FilterAction>) => {
-        return (dispatch({
-            type: type
-        }));
-    }
-}

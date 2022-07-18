@@ -9,15 +9,6 @@ export type StoreItemProps = {
     image: string
 }
 
-export type StoreItem = {
-    id: number,
-    title: string,
-    price: number,
-    description: string,
-    category: string,
-    image: string
-}
-
 export type CartItem = {
     id: number
     quantity: number
@@ -33,16 +24,10 @@ export type ShoppingCartContextType = {
     decreaseQuantity: (id: number) => void
     deleteItem: (id: number) => void
     cartQuantity: number
-    cartItems: CartItem[];
-    changeCategory: (type: string) => void
-    storeItems: StoreItem[]
+    cartItems: CartItem[]
 }
 
 export type CartItemAction = {
     type: "increaseQuantity" | "decreaseQuantity" | "deleteItem",
     payload: number
-}
-
-export type FilterAction = {
-    type: string,
 }
