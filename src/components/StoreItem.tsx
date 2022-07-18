@@ -7,14 +7,13 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
 
     return (
         <div className="card bg-base-100 shadow-2xl">
-            <figure className="h-1/2">
-                <img src={image} alt={title} className="rounded-xl p-10 h-96 object-contain" />
+            <figure className="h-1/3">
+                <img src={image} alt={title} className="rounded-xl h-full p-10 object-contain" />
             </figure>
             <div className="card-body">
                 <div>
                     <h2 className="card-title mb-3">{title}</h2>
-                    <p className="badge badge-outline badge-lg mb-3
-                    ">{category}</p>
+                    <p className="badge badge-outline badge-lg mb-3">{category}</p>
                     <p className="text-xl mb-5">${price}</p>
                 </div>
                 <p>{description}</p>

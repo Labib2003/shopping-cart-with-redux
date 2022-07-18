@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { useShoppingCart } from "./contexts/ShoppingCartContext";
 import Store from "./pages/Store";
 import products from "./data/products.json"
+import Filter from "./components/Filter";
 
 function App() {
   const { cartItems } = useShoppingCart();
@@ -14,6 +15,7 @@ function App() {
           <Navbar />
         </div>
         <div className="w-3/4 mx-auto">
+          <Filter />
           <Store />
         </div>
       </div>
