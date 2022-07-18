@@ -3,7 +3,6 @@ import { StoreItemProps } from "../types";
 
 const StoreItem = ({ id, title, price, description, category, image }: StoreItemProps) => {
     const { getItemQuantity, increaseQuantity, decreaseQuantity, deleteItem } = useShoppingCart();
-    const { cartItems } = useShoppingCart();
     const quantity = getItemQuantity(id);
 
     return (
@@ -14,6 +13,8 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
             <div className="card-body">
                 <div>
                     <h2 className="card-title mb-3">{title}</h2>
+                    <p className="badge badge-outline badge-lg mb-3
+                    ">{category}</p>
                     <p className="text-xl mb-5">${price}</p>
                 </div>
                 <p>{description}</p>
@@ -26,10 +27,7 @@ const StoreItem = ({ id, title, price, description, category, image }: StoreItem
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
                                     </button>
                                     <p className="text-center text-xl font-medium">{quantity}</p>
-                                    <button className="btn btn-primary rounded" onClick={() => {
-                                        increaseQuantity(id);
-                                        console.log(typeof(cartItems))
-                                    }}>
+                                    <button className="btn btn-primary rounded" onClick={() => increaseQuantity(id)}>
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                                     </button>
                                 </div>
