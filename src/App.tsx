@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { useShoppingCart } from "./contexts/ShoppingCartContext";
 import Store from "./pages/Store";
 import products from "./data/products.json"
+import { formatCurrency } from "./utilities/currencyFormatter";
 
 function App() {
   const { cartItems } = useShoppingCart();
@@ -19,18 +20,21 @@ function App() {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-1/4 bg-base-100 text-base-content">
+        <ul className="menu p-4 overflow-y-auto w-4/5 md:w-1/4 bg-base-100 text-base-content">
           <p className="text-xl font-medium">Cart</p>
           {
             cartItems.map(item => <li key={item.id}>
               <CartItemComponent {...item}></CartItemComponent>
             </li>)
           }
-          <p className="text-xl font-medium text-right mt-5">Grand Total: ${
-            cartItems.reduce((total, cartItem) => {
-              const item = products.find(item => item.id === cartItem.id);
-              return total + (item?.price || 0) * cartItem.quantity;
-            }, 0)}</p>
+          <p className="text-xl font-medium text-right mt-5">
+            Total: {
+              formatCurrency(cartItems.reduce((total, cartItem) => {
+                const item = products.find(item => item.id === cartItem.id);
+                return total + (item?.price || 0) * cartItem.quantity;
+              }, 0))
+            }
+          </p>
         </ul>
       </div>
     </div>
